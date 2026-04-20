@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siddhesh Pallor | DevOps Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:linear-gradient(135deg,#020617,#0f172a,#1e293b);color:#fff}
+
+header{display:flex;justify-content:space-between;padding:20px 50px;position:fixed;width:100%;backdrop-filter:blur(10px)}
+header h1{color:#22d3ee}
+nav a{margin-left:20px;color:#fff;text-decoration:none}
+nav a:hover{color:#22d3ee}
+
+section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 20px}
+
+.hero h2{font-size:3rem}
+.hero span{color:#22d3ee}
+
+.btn{margin-top:20px;padding:12px 25px;background:#22d3ee;color:#000;border-radius:30px;text-decoration:none}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;width:100%;max-width:1000px;margin-top:40px}
+.card{background:#1e293b;padding:20px;border-radius:20px;transition:.3s}
+.card:hover{transform:translateY(-10px);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:20px;margin-top:40px;width:80%}
+.skill{background:#1e293b;padding:15px;border-radius:10px}
+
+.flow{display:flex;flex-wrap:wrap;gap:15px;margin-top:30px}
+.flow div{background:#22d3ee;color:#000;padding:10px 20px;border-radius:20px}
+
+footer{padding:20px;text-align:center;background:#020617}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Siddhesh Pallor</h1>
+<nav>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h2>Hi, I'm <span>Siddhesh</span></h2>
+<p id="typing"></p>
+<a href="#projects" class="btn">View Work</a>
+<a href="resume.pdf" class="btn">Resume</a>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="cards">
+<div class="card"><h3>CI/CD Pipeline</h3><p>GitHub Actions + Docker automation</p><a href="https://github.com/SiddheshPallor">View Code</a></div>
+<div class="card"><h3>AWS Infrastructure</h3><p>VPC, EC2, IAM, S3 setup</p></div>
+<div class="card"><h3>Multi-Cloud App</h3><p>AWS S3 + GCP backend</p></div>
+<div class="card"><h3>Amazon Lex Chatbot</h3><p>AWS chatbot automation</p></div>
+<div class="card"><h3>Vroom App</h3><p>Car rental platform</p></div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills">
+<div class="skill">AWS</div>
+<div class="skill">Docker</div>
+<div class="skill">Kubernetes</div>
+<div class="skill">GitHub Actions</div>
+<div class="skill">Linux</div>
+<div class="skill">CI/CD</div>
+<div class="skill">GCP</div>
+<div class="skill">Azure</div>
+</div>
+</section>
+
+<section>
+<h2>CI/CD Flow</h2>
+<div class="flow">
+<div>Code</div>
+<div>Build</div>
+<div>Test</div>
+<div>Dockerize</div>
+<div>Deploy</div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p><a href="https://github.com/SiddheshPallor">GitHub</a></p>
+<p><a href="https://www.linkedin.com/in/siddhesh-pallor-821516311/">LinkedIn</a></p>
+<p>Email: your@email.com</p>
+</section>
+
+<footer>
+<p>© 2026 Siddhesh Pallor</p>
+</footer>
+
+<script>
+const words=["DevOps Engineer","AWS & Cloud","CI/CD Automation","Docker & Kubernetes"];
+let i=0,j=0,current="",isDeleting=false;
+
+function type(){
+current=words[i];
+if(!isDeleting){
+document.getElementById("typing").innerText=current.substring(0,j++);
+if(j>current.length){isDeleting=true;setTimeout(type,1000);return}
+}else{
+document.getElementById("typing").innerText=current.substring(0,j--);
+if(j==0){isDeleting=false;i=(i+1)%words.length}
+}
+setTimeout(type,isDeleting?40:80)
+}
+
+type();
+</script>
+
+</body>
+</html>
