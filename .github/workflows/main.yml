@@ -40,4 +40,4 @@ jobs:
             docker stop portfolio || true
             docker rm portfolio || true
             docker pull sidh25/portfolio:latest
-            docker run -d -p 80:80 --name portfolio sidh25/portfolio:latest
+            docker run -d -p 3000:80 --name portfolio sidh25/portfolio:latest
